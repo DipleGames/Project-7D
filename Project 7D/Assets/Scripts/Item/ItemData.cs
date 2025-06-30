@@ -8,6 +8,14 @@ public enum ItemType
     Food
 }
 
+[System.Serializable]
+public class ResourceRequirement
+{
+    public ResourceType resourceType;
+    public Sprite resourceIcon;
+    public Category category;
+    public int amount;
+}
 
 
 
@@ -18,6 +26,5 @@ public class ItemData : ScriptableObject
     public string desc;
     public Sprite icon;
     public ItemType itemType;
-    public List<ResourceType> requirements_Resource;
-    public int requirements_Value;
+    public List<ResourceRequirement> requirements;
 }

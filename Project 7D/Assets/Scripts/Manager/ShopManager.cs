@@ -10,6 +10,10 @@ public class ShopManager : SingleTon<ShopManager>
     [SerializeField] private GameObject shopUI;
     [SerializeField] private GameObject itemSlotPrefab;
     [SerializeField] private GameObject itemSlotPanel;
+    public GameObject panel;
+    public GameObject buyPanel;
+    public Button buyBtn;
+
     public Text itemName;
     public Text itemDesc;
     public Text requirements_Resource;
@@ -17,7 +21,7 @@ public class ShopManager : SingleTon<ShopManager>
     [SerializeField] private List<ItemData> ToweritemDatas;
     [SerializeField] private List<ItemData> FooditemDatas;
 
-    
+
 
     void Update()
     {
@@ -25,7 +29,10 @@ public class ShopManager : SingleTon<ShopManager>
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                shopUI.SetActive(true);
+                if (!shopUI.activeSelf)
+                    shopUI.SetActive(true);
+                else
+                    shopUI.SetActive(false);
             }
         }
         else if (!inShopArea)
@@ -42,13 +49,6 @@ public class ShopManager : SingleTon<ShopManager>
             SetItemData(itemSlotInstance, itemData);
         }
     }
-
-    void SetItemData(GameObject itemSlotInstance, ItemData itemData)
-    {
-        ItemSlot itemSlot = itemSlotInstance.GetComponent<ItemSlot>();
-        itemSlot.currentData = itemData;
-    }
-
     void OnTriggerEnter(Collider other)
     {
         inShopArea = true;
@@ -57,5 +57,11 @@ public class ShopManager : SingleTon<ShopManager>
     void OnTriggerExit(Collider other)
     {
         inShopArea = false;
+    }
+
+    void SetItemData(GameObject itemSlotInstance, ItemData itemData)
+    {
+        ItemSlot itemSlot = itemSlotInstance.GetComponent<ItemSlot>();
+        itemSlot.currentData = itemData;
     }
 }

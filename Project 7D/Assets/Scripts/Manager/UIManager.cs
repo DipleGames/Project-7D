@@ -97,6 +97,7 @@ public class UIManager : SingleTon<UIManager>
         }
     }
 
+
     // 체력바 UI
     public void PlayerHealthGatherBarUI(float playerHealth)
     {

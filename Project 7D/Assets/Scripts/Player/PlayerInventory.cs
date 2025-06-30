@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerInventory : SingleTon<PlayerInventory>
 {
-    private Dictionary<ResourceType, int> resourceDict = new();
+    public Dictionary<ResourceType, int> resourceDict = new();
     public event Action<Sprite, ResourceType, Category, int> OnResourceChanged;
 
     void Start()
@@ -31,6 +31,22 @@ public class PlayerInventory : SingleTon<PlayerInventory>
         // UI에 현재 수량 전달
         OnResourceChanged?.Invoke(icon, type, category, resourceDict[type]);
     }
+
+    public void SubtractResource(Sprite icon, ResourceType type, Category category, int amount)
+    {
+        if (resourceDict.ContainsKey(type))
+        {
+            resourceDict[type] -= amount;
+        }
+        else
+        {
+            resourceDict[type] = amount;
+        }
+
+        // UI에 현재 수량 전달
+        OnResourceChanged?.Invoke(icon, type, category, resourceDict[type]);
+    }
+
 
     public int GetAmount(ResourceType type)
     {
