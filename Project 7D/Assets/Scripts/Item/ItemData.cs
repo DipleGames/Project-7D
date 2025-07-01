@@ -8,8 +8,16 @@ public enum ItemType
     Food
 }
 
+public enum Category
+{
+    Structure,
+    Consumable,
+    resource,
+}
+
+
 [System.Serializable]
-public class ResourceRequirement
+public class ResourceRequirement // 필요한 재료 및 개수 정의하기 위함
 {
     public ResourceType resourceType;
     public Sprite resourceIcon;
@@ -26,5 +34,6 @@ public class ItemData : ScriptableObject
     public string desc;
     public Sprite icon;
     public ItemType itemType;
+    public Category category;
     public List<ResourceRequirement> requirements;
 }

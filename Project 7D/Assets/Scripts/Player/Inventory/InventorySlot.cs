@@ -4,15 +4,17 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private Image icon;
-    [SerializeField] private Text itemName;
-    [SerializeField] private Text category;
     [SerializeField] private Text count;
+    public ItemType itemType;
 
-    public void SetData(Sprite iconSprite, string name, string categoryText, int amount)
+    public bool isEmpty = true;
+
+
+    public void SetData(Sprite iconSprite, ItemType type, int amount)
     {
         icon.sprite = iconSprite;
-        itemName.text = name;
-        category.text = categoryText;
         count.text = amount.ToString();
+        itemType = type;
+        isEmpty = false;
     }
 }

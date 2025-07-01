@@ -28,12 +28,28 @@ public class ShopManager : SingleTon<ShopManager>
     {
         if (inShopArea)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 if (!shopUI.activeSelf)
                     shopUI.SetActive(true);
                 else
                     shopUI.SetActive(false);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (shopUI.activeSelf)
+                {
+                    if (buyPanel.activeSelf)
+                    {
+                        buyPanel.SetActive(false);
+                        panel.SetActive(false);
+                    }
+                    else
+                    {
+                        shopUI.SetActive(false);
+                    }
+                }
             }
         }
         else if (!inShopArea)

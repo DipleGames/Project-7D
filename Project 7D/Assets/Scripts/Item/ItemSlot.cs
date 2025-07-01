@@ -1,33 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
-public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public ItemData currentData;
 
     private float lastClickTime = 0f;
     private float doubleClickThreshold = 0.3f; // 더블클릭 판정 시간 (초)
 
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0)) // 좌클릭
-        {
-            if (Time.time - lastClickTime < doubleClickThreshold)
-            {
-                OnClickItem();
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
 
-                lastClickTime = 0f; // 초기화
-            }
-            else
-            {
-                lastClickTime = Time.time;
-            }
+        if (Time.time - lastClickTime < doubleClickThreshold)
+        {
+            OnClickItem();
+            lastClickTime = 0f;
+        }
+        else
+        {
+            lastClickTime = Time.time;
         }
     }
 
     void Start()
     {
+        ShopManager.Instance.buyBtn.onClick.AddListener(BuyItem);
+
         Image icon = GetComponent<Image>();
         icon.sprite = currentData.icon;
     }
@@ -37,12 +39,18 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ShopManager.Instance.itemName.text = currentData.displayName;
         ShopManager.Instance.itemDesc.text = currentData.desc;
 
+        List<string> resourceNames = new();
+        List<string> amounts = new();
+
         foreach (var req in currentData.requirements)
         {
-            string requirements_Resource_text = string.Join(", ", req.resourceType);
-            ShopManager.Instance.requirements_Resource.text = $"필요한 재료 : {requirements_Resource_text}";
-            ShopManager.Instance.requirements_Value.text = $"필요한 개수 : {req.amount}";
+            resourceNames.Add(req.resourceType.ToString());
+            amounts.Add(req.amount.ToString());
         }
+
+        ShopManager.Instance.requirements_Resource.text = $"필요한 재료 : {string.Join(", ", resourceNames)}";
+        ShopManager.Instance.requirements_Value.text = $"필요한 개수 : {string.Join(", ", amounts)}";
+
 
     }
 
@@ -65,6 +73,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             PlayerInventory.Instance.SubtractResource(req.resourceIcon, req.resourceType, req.category, req.amount);
         }
+        PlayerInventory.Instance.AddItem(currentData.icon, currentData.itemType, currentData.category, 1);
     }
 
     public void OnClickItem()
@@ -72,10 +81,9 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ShopManager.Instance.panel.SetActive(true);
         ShopManager.Instance.buyPanel.SetActive(true);
 
-        ShopManager.Instance.buyBtn.onClick.AddListener(BuyItem);
     }
 
-    public void CancleBtn()
+    public void CancelBtn()
     {
         ShopManager.Instance.panel.SetActive(false);
         ShopManager.Instance.buyPanel.SetActive(false);

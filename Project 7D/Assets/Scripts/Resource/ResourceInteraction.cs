@@ -17,7 +17,7 @@ public class ResourceInteraction : MonoBehaviour
     {
         if (targetNode != null)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.F))
             {
                 if (!isHolding)
                 {
@@ -34,7 +34,7 @@ public class ResourceInteraction : MonoBehaviour
                     OnGatherComplete();
                 }
             }
-            else if (Input.GetKeyUp(KeyCode.E))
+            else if (Input.GetKeyUp(KeyCode.F))
             {
                 ResetGathering();
             }
