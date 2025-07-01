@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ShopManager : SingleTon<ShopManager>
 {
@@ -21,7 +22,7 @@ public class ShopManager : SingleTon<ShopManager>
     [SerializeField] private List<ItemData> ToweritemDatas;
     [SerializeField] private List<ItemData> FooditemDatas;
 
-
+    private List<GameObject> itemSlotList;
 
     void Update()
     {
@@ -43,12 +44,39 @@ public class ShopManager : SingleTon<ShopManager>
 
     void Start()
     {
+        itemSlotList = new List<GameObject>();
+
         foreach (ItemData itemData in ToweritemDatas)
         {
-            GameObject itemSlotInstance = Instantiate(itemSlotPrefab, itemSlotPanel.transform);
+            GameObject itemSlotInstance = Instantiate(itemSlotPrefab, itemSlotPanel.transform); ;
             SetItemData(itemSlotInstance, itemData);
+            itemSlotInstance.SetActive(false);
+            itemSlotList.Add(itemSlotInstance);
+        }
+
+        foreach (ItemData itemData in FooditemDatas)
+        {
+            GameObject itemSlotInstance = Instantiate(itemSlotPrefab, itemSlotPanel.transform); ;
+            SetItemData(itemSlotInstance, itemData);
+            itemSlotInstance.SetActive(false);
+            itemSlotList.Add(itemSlotInstance);
+        }
+        
+        foreach (GameObject itemSlot in itemSlotList)
+        {
+            ItemSlot itemSlotComponent = itemSlot.GetComponent<ItemSlot>();
+
+            if (itemSlotComponent.currentData.itemType == ItemType.Tower)
+            {
+                itemSlot.SetActive(true);
+            }
+            else
+            {
+                itemSlot.SetActive(false);
+            }
         }
     }
+
     void OnTriggerEnter(Collider other)
     {
         inShopArea = true;
@@ -63,5 +91,46 @@ public class ShopManager : SingleTon<ShopManager>
     {
         ItemSlot itemSlot = itemSlotInstance.GetComponent<ItemSlot>();
         itemSlot.currentData = itemData;
+    }
+
+    public void OnItemBtnClicked()
+    {
+        GameObject clickedObj = EventSystem.current.currentSelectedGameObject;
+
+        Text itemTypeText = clickedObj.GetComponentInChildren<Text>(); // (구버전 Text)
+
+        if (itemTypeText.text == "타워")
+        {
+            foreach (GameObject itemSlot in itemSlotList)
+            {
+                ItemSlot itemSlotComponent = itemSlot.GetComponent<ItemSlot>();
+
+                if (itemSlotComponent.currentData.itemType == ItemType.Tower)
+                {
+                    itemSlot.SetActive(true);
+                }
+                else
+                {
+                    itemSlot.SetActive(false);
+                }
+            }
+        }
+        else if (itemTypeText.text == "음식")
+        {
+            foreach (GameObject itemSlot in itemSlotList)
+            {
+                ItemSlot itemSlotComponent = itemSlot.GetComponent<ItemSlot>();
+
+                if (itemSlotComponent.currentData.itemType == ItemType.Food)
+                {
+                    itemSlot.SetActive(true);
+                }
+                else
+                {
+                    itemSlot.SetActive(false);
+                }
+            }
+        }
+
     }
 }
