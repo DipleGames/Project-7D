@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : SingleTon<InventoryManager>
 {
     [Header("인벤토리 UI")]
     [SerializeField] private GameObject inventoryUI;
@@ -48,6 +48,22 @@ public class InventoryManager : MonoBehaviour
                 inventorySlot.SetData(icon, type, amount);
                 return;
             }
+        }
+    }
+
+    public void OnClickedTowerTypeBtn()
+    {
+        foreach (GameObject slot in inventorySlots)
+        {
+            InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
+        }
+    }
+
+    public void OnClickedFoodTypeBtn()
+    {
+        foreach (GameObject slot in inventorySlots)
+        {
+            InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
         }
     }
 }
