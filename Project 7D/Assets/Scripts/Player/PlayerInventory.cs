@@ -7,9 +7,9 @@ using UnityEngine;
 public class PlayerInventory : SingleTon<PlayerInventory>
 {
     public Dictionary<ResourceType, int> resourceDict = new();
-    public Dictionary<ItemType, int> itemDict = new();
+    public Dictionary<ItemData, int> itemDict = new();
     public event Action<Sprite, ResourceType, Category, int> OnResourceChanged;
-    public event Action<Sprite, ItemType, int> OnItemChanged;
+    public event Action<Sprite, ItemData> OnItemChanged;
 
     void Start()
     {
@@ -18,9 +18,9 @@ public class PlayerInventory : SingleTon<PlayerInventory>
             resourceDict[type] = 0;
         }
 
-        foreach (ItemType type in Enum.GetValues(typeof(ItemType)))
+        foreach (ItemData data in Enum.GetValues(typeof(ItemData)))
         {
-            itemDict[type] = 0;
+            itemDict[data] = 0;
         }
     }
 
@@ -68,30 +68,33 @@ public class PlayerInventory : SingleTon<PlayerInventory>
     /// <param name="type"></param>
     /// <param name="category"></param>
     /// <param name="amount"></param>
-    public void AddItem(Sprite icon, ItemType type, Category category, int amount)
+    public void AddItem(Sprite icon, ItemData data, int amount)
     {
-        if (itemDict.ContainsKey(type))
+        if (itemDict.ContainsKey(data))
         {
-            itemDict[type] += amount;
+            itemDict[data] += amount;
         }
         else
         {
-            itemDict[type] = amount;
+            itemDict[data] = amount;
         }
-        OnItemChanged?.Invoke(icon, type, itemDict[type]);
+        OnItemChanged?.Invoke(icon, data);
+
+        foreach (var id in itemDict)
+            Debug.Log($"{id.Key}, {id.Value}");
     }
 
-    public void SubtractItem(Sprite icon, ItemType type, Category category, int amount)
+    public void SubtractItem(Sprite icon, ItemData data, int amount)
     {
-        if (itemDict.ContainsKey(type))
+        if (itemDict.ContainsKey(data))
         {
-            itemDict[type] -= amount;
+            itemDict[data] -= amount;
         }
         else
         {
-            itemDict[type] = amount;
+            itemDict[data] = amount;
         }
-        OnItemChanged.Invoke(icon, type, itemDict[type]);
+        OnItemChanged.Invoke(icon, data);
     }
 
 

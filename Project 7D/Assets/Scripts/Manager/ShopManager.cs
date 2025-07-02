@@ -22,6 +22,9 @@ public class ShopManager : SingleTon<ShopManager>
     [SerializeField] private List<ItemData> ToweritemDatas;
     [SerializeField] private List<ItemData> FooditemDatas;
 
+    [Header("현재 선택된 아이템")]
+    public ItemSlot selectedItemSlot;
+
     private List<GameObject> itemSlotList;
 
     void Update()
@@ -60,6 +63,14 @@ public class ShopManager : SingleTon<ShopManager>
 
     void Start()
     {
+        buyBtn.onClick.AddListener(() =>
+        {
+            if (selectedItemSlot != null)
+            {
+                selectedItemSlot.BuyItem();
+            }
+        });
+
         itemSlotList = new List<GameObject>();
 
         foreach (ItemData itemData in ToweritemDatas)
@@ -109,7 +120,7 @@ public class ShopManager : SingleTon<ShopManager>
         itemSlot.currentData = itemData;
     }
 
-    public void OnItemBtnClicked()
+    public void OnClickedItemBtn()
     {
         GameObject clickedObj = EventSystem.current.currentSelectedGameObject;
 

@@ -5,16 +5,24 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private Image icon;
     [SerializeField] private Text count;
-    public ItemType itemType;
+    public ItemData itemData;
 
     public bool isEmpty = true;
 
 
-    public void SetData(Sprite iconSprite, ItemType type, int amount)
+    public void SetData(Sprite iconSprite, ItemData data, int amount)
     {
         icon.sprite = iconSprite;
         count.text = amount.ToString();
-        itemType = type;
+        itemData = data;
         isEmpty = false;
+    }
+
+    public void ReSetData()
+    {
+        icon.sprite = null;
+        count.text = "";
+        itemData = null;
+        isEmpty = true;
     }
 }

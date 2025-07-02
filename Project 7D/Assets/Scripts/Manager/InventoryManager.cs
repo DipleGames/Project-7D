@@ -26,15 +26,17 @@ public class InventoryManager : SingleTon<InventoryManager>
         }
     }
 
-    void UpdateInventoryUI(Sprite icon, ItemType type, int amount)
+    void UpdateInventoryUI(Sprite icon, ItemData data)
     {
+        Dictionary<ItemData, int> dict = PlayerInventory.Instance.itemDict;
+
         // 1. 먼저 같은 아이템이 있는지 검사해서 스택
         foreach (GameObject slot in inventorySlots)
         {
             InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
-            if (!inventorySlot.isEmpty && inventorySlot.itemType == type)
+            if (!inventorySlot.isEmpty && inventorySlot.itemData == data)
             {
-                inventorySlot.SetData(icon, type, amount);
+                inventorySlot.SetData(icon, data, dict[data]);
                 return;
             }
         }
@@ -45,25 +47,43 @@ public class InventoryManager : SingleTon<InventoryManager>
             InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
             if (inventorySlot.isEmpty)
             {
-                inventorySlot.SetData(icon, type, amount);
+                inventorySlot.SetData(icon, data, dict[data]);
                 return;
+            }
+        }
+    }
+
+    public void FilterByItemType(ItemType filterType)
+    {
+        Dictionary<ItemData, int> dict = PlayerInventory.Instance.itemDict;
+
+        foreach (GameObject slot in inventorySlots)
+        {
+            InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
+            inventorySlot.ReSetData();
+        }
+
+
+        int i = 0;
+        foreach (var d in dict)
+        {
+            ItemData itemData = d.Key;
+            if (itemData.itemType == filterType)
+            {
+                InventorySlot inventorySlot = inventorySlots[i].GetComponent<InventorySlot>();
+                inventorySlot.SetData(itemData.icon, itemData, dict[itemData]);
+                i++;
             }
         }
     }
 
     public void OnClickedTowerTypeBtn()
     {
-        foreach (GameObject slot in inventorySlots)
-        {
-            InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
-        }
+        FilterByItemType(ItemType.Tower);
     }
 
     public void OnClickedFoodTypeBtn()
     {
-        foreach (GameObject slot in inventorySlots)
-        {
-            InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
-        }
+        FilterByItemType(ItemType.Food);
     }
 }

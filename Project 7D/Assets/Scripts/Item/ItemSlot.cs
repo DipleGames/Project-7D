@@ -28,8 +28,6 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void Start()
     {
-        ShopManager.Instance.buyBtn.onClick.AddListener(BuyItem);
-
         Image icon = GetComponent<Image>();
         icon.sprite = currentData.icon;
     }
@@ -62,7 +60,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ShopManager.Instance.requirements_Value.text = $"필요한 개수 : ";
     }
 
-    public void BuyItem()
+    public void BuyItem() // 아이템을 구매하는 메서드
     {
         foreach (ResourceRequirement req in currentData.requirements)
         {
@@ -73,14 +71,14 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             PlayerInventory.Instance.SubtractResource(req.resourceIcon, req.resourceType, req.category, req.amount);
         }
-        PlayerInventory.Instance.AddItem(currentData.icon, currentData.itemType, currentData.category, 1);
+        PlayerInventory.Instance.AddItem(currentData.icon, currentData, 1); // 플레이어 인벤토리에 아이템을 추가함 (아이템의 아이콘과 아이템의 데이터 , 개수)
     }
 
     public void OnClickItem()
     {
+        ShopManager.Instance.selectedItemSlot = this; // 현재 슬롯 등록
         ShopManager.Instance.panel.SetActive(true);
         ShopManager.Instance.buyPanel.SetActive(true);
-
     }
 
     public void CancelBtn()
