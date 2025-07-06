@@ -16,7 +16,6 @@ public enum Category
     Resource,
 }
 
-
 [System.Serializable]
 public class ResourceRequirement // 필요한 재료 및 개수 정의하기 위함
 {

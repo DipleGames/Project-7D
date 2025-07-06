@@ -17,11 +17,6 @@ public class PlayerInventory : SingleTon<PlayerInventory>
         {
             resourceDict[type] = 0;
         }
-
-        foreach (ItemData data in Enum.GetValues(typeof(ItemData)))
-        {
-            itemDict[data] = 0;
-        }
     }
 
     /// <summary>

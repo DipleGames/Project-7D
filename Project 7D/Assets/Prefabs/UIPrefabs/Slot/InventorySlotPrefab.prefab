@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7029370581204879377}
   count: {fileID: 6892776816142825216}
+  itemData: {fileID: 0}
+  isEmpty: 1
 --- !u!1 &6224644028706002641
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +166,8 @@ GameObject:
   - component: {fileID: 402636730297124008}
   - component: {fileID: 6288039170295394280}
   - component: {fileID: 7029370581204879377}
+  - component: {fileID: 5737128027249720341}
+  - component: {fileID: 4359859700419460561}
   m_Layer: 5
   m_Name: ItmeImg
   m_TagString: Untagged
@@ -228,6 +232,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5737128027249720341
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224644028706002641}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4359859700419460561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224644028706002641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0134c8b6801ed2f4593f8100f887e4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalParent: {fileID: 6485543902374702888}
 --- !u!1 &8932925372691189606
 GameObject:
   m_ObjectHideFlags: 0

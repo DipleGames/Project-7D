@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class QuickSlotManager : MonoBehaviour
 {
+    [Header("인벤 퀵슬롯")]
+    public List<GameObject> quickSlotPrefabs_Inven;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
