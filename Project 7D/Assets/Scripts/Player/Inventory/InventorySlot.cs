@@ -9,7 +9,6 @@ public class InventorySlot : MonoBehaviour
 
     public bool isEmpty = true;
 
-
     public void SetData(Sprite iconSprite, ItemData data, int amount)
     {
         icon.sprite = iconSprite;

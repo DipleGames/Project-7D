@@ -889,6 +889,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 918748956}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 446703499}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -988,6 +998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -3632,6 +3647,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 2015519155}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 744494532}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3731,6 +3756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -4822,6 +4852,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 607101128}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 978797765}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4921,6 +4961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -7975,6 +8020,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 29548550}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 28564911}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8074,6 +8129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -9254,6 +9314,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1077439657}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 704051414}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9353,6 +9423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -11059,6 +11134,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1964083371}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 1783656189}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11158,6 +11243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -13873,6 +13963,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1754730117}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 1983477962}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13973,40 +14073,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
+      objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Name
       value: QuickSlotPrefab_Inven
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685402201213990685, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: countText
-      value: 
-      objectReference: {fileID: 1983477962}
-    - target: {fileID: 6685402201213990685, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: iconImage
-      value: 
-      objectReference: {fileID: 1754730117}
-    - target: {fileID: 6936051930425204223, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.033018887
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936051930425204223, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.033018887
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936051930425204223, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936051930425204223, guid: 9eca85c4292059648bcfc5d44785a33e,
-        type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16468,6 +16543,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1133354833}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 1548240348}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -16567,6 +16652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -16743,6 +16833,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407787893}
     m_Modifications:
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 289751483}
+    - target: {fileID: 1903022889188527525, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 172143385}
     - target: {fileID: 2100310680723902499, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -16842,6 +16942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392384471970665763, guid: 9eca85c4292059648bcfc5d44785a33e,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemIcon_Q
       objectReference: {fileID: 0}
     - target: {fileID: 6365712099246152134, guid: 9eca85c4292059648bcfc5d44785a33e,
         type: 3}
@@ -17206,9 +17311,9 @@ SceneRoots:
   - {fileID: 689961599}
   - {fileID: 1931305808}
   - {fileID: 391392251}
-  - {fileID: 1215882506}
   - {fileID: 1644030746}
   - {fileID: 1597391582}
+  - {fileID: 1215882506}
   - {fileID: 154125750}
   - {fileID: 1520917626}
   - {fileID: 1681500465}
