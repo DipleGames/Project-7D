@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuildManager : MonoBehaviour
+public class BuildManager : SingleTon<BuildManager>
 {
     [Header("설치할 프리팹")]
     public GameObject BuildingPrefab;
@@ -20,12 +20,6 @@ public class BuildManager : MonoBehaviour
 
     void Update()
     {
-        // Q 키로 설치 모드 토글
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ToggleBuildMode();
-        }
-
         if (!isBuildMode || previewInstance == null) return;
 
         // 마우스 위치 기반 스냅
@@ -49,7 +43,7 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    void ToggleBuildMode()
+    public void ToggleBuildMode()
     {
         if (isBuildMode)
         {
@@ -62,6 +56,9 @@ public class BuildManager : MonoBehaviour
         {
             // 모드 시작
             previewInstance = Instantiate(PreviewPrefab);
+            BoxCollider boxCollider = previewInstance.GetComponent<BoxCollider>();
+            boxCollider.enabled = false;
+            
             previewRenderer = previewInstance.GetComponentInChildren<Renderer>();
             isBuildMode = true;
         }

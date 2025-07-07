@@ -51,5 +51,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         DragManager.Instance.EndDrag();
         droppedSuccessfully = false; // 항상 초기화
         canvasGroup.blocksRaycasts = true;
+        QuickSlotManager.Instance.SyncQuickSlotsFromInven();
     }
 }

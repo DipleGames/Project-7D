@@ -9,13 +9,12 @@ public class DropSlot : MonoBehaviour, IDropHandler
         DraggableItem item = eventData.pointerDrag.GetComponent<DraggableItem>();   
         item.droppedSuccessfully = true;
 
-        ItemData data = DragManager.Instance.draggingItemData;
-
         QuickSlot quickSlot = GetComponent<QuickSlot>();
+        ItemData data = DragManager.Instance.draggingItemData;
         quickSlot.itemData = data;
 
         if (data == null) return;
-        
+
         quickSlot.SetData(data.icon, data, PlayerInventory.Instance.itemDict[data]);
         Debug.Log("슬롯에 아이템 정보만 적용됨 (오브젝트는 이동 안 함)");
     }

@@ -3,30 +3,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuickSlotManager : MonoBehaviour
+public class QuickSlotManager : SingleTon<QuickSlotManager>
 {
     [Header("인벤 퀵슬롯")]
     public List<GameObject> quickSlotPrefabs_Inven;
 
+    [Header("메인 퀵슬롯")]
+    public List<GameObject> quickSlotPrefabs;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            Debug.Log("1번");
+            SelectedQuickSlot(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-            Debug.Log("2번");
+            SelectedQuickSlot(1);
         else if (Input.GetKeyDown(KeyCode.Alpha3))
-            Debug.Log("3번");
+            SelectedQuickSlot(2);
         else if (Input.GetKeyDown(KeyCode.Alpha4))
-            Debug.Log("4번");
+            SelectedQuickSlot(3);
         else if (Input.GetKeyDown(KeyCode.Alpha5))
-            Debug.Log("5번");
+            SelectedQuickSlot(4);
         else if (Input.GetKeyDown(KeyCode.Alpha6))
-            Debug.Log("6번");
+            SelectedQuickSlot(5);
         else if (Input.GetKeyDown(KeyCode.Alpha7))
-            Debug.Log("7번");
+            SelectedQuickSlot(6);
         else if (Input.GetKeyDown(KeyCode.Alpha8))
-            Debug.Log("8번");
+           SelectedQuickSlot(7);
         else if (Input.GetKeyDown(KeyCode.Alpha9))
-            Debug.Log("9번");
+            SelectedQuickSlot(8);
+    }
+
+    public void SyncQuickSlotsFromInven()
+    {
+        for (int i = 0; i < quickSlotPrefabs_Inven.Count; i++)
+        {
+            QuickSlot quickSlot = quickSlotPrefabs_Inven[i].GetComponent<QuickSlot>();
+            QuickSlot mainSlot = quickSlotPrefabs[i].GetComponent<QuickSlot>();
+
+            if (quickSlot.itemData != null)
+            {
+                mainSlot.SetData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]); // 아이템 데이터와 아이콘을 복사
+            }
+            else
+            {
+                mainSlot.ReSetData(); // 비었으면 메인 퀵슬롯도 비우기
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// 퀵슬롯 선택 기능을 담당하는 메서드
+    /// </summary>
+    /// <param name="index"></param>
+    void SelectedQuickSlot(int index)
+    {
+        QuickSlotItemHandler quickSlotItemHandler = quickSlotPrefabs[index].GetComponent<QuickSlotItemHandler>();
+        quickSlotItemHandler.isSelected = true;
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (i != index)
+            {
+                QuickSlotItemHandler otherQuickSlotItemHandler = quickSlotPrefabs[i].GetComponent<QuickSlotItemHandler>();
+                otherQuickSlotItemHandler.isSelected = false;
+            }
+        }
     }
 }
