@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuickSlotItemHandler : MonoBehaviour
 {
     QuickSlot quickSlot;
+    Text Count;
 
-    [Header("선택")]
     public bool isSelected = false;
 
     void Start()
     {
         quickSlot = GetComponent<QuickSlot>();
+        Count = quickSlot.GetComponentInChildren<Text>();
     }
 
     void Update()
@@ -26,6 +28,10 @@ public class QuickSlotItemHandler : MonoBehaviour
     {
         if (!isSelected) return;
 
+        PlayerInventory.Instance.itemDict[quickSlot.itemData]--;
+        quickSlot.SetData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
+        quickSlot.LinkData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
+
         switch (quickSlot.itemData.itemType)
         {
             case ItemType.Tower:
@@ -33,6 +39,12 @@ public class QuickSlotItemHandler : MonoBehaviour
                 break;
             case ItemType.Food:
                 break;
+        }
+
+        if (PlayerInventory.Instance.itemDict[quickSlot.itemData] == 0)
+        {
+            quickSlot.ReSetData();
+            quickSlot.ResetLinkData();
         }
     }
 

@@ -47,6 +47,8 @@ public class InventoryManager : SingleTon<InventoryManager>
             InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
             if (inventorySlot.isEmpty)
             {
+                if (dict[data] <= 0) return;
+                
                 inventorySlot.SetData(icon, data, dict[data]);
                 return;
             }

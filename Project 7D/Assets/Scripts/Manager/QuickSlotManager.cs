@@ -1,15 +1,15 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class QuickSlotManager : SingleTon<QuickSlotManager>
 {
-    [Header("인벤 퀵슬롯")]
-    public List<GameObject> quickSlotPrefabs_Inven;
 
     [Header("메인 퀵슬롯")]
     public List<GameObject> quickSlotPrefabs;
+    public GameObject hightLight;
 
     void Update()
     {
@@ -33,24 +33,6 @@ public class QuickSlotManager : SingleTon<QuickSlotManager>
             SelectedQuickSlot(8);
     }
 
-    public void SyncQuickSlotsFromInven()
-    {
-        for (int i = 0; i < quickSlotPrefabs_Inven.Count; i++)
-        {
-            QuickSlot quickSlot = quickSlotPrefabs_Inven[i].GetComponent<QuickSlot>();
-            QuickSlot mainSlot = quickSlotPrefabs[i].GetComponent<QuickSlot>();
-
-            if (quickSlot.itemData != null)
-            {
-                mainSlot.SetData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]); // 아이템 데이터와 아이콘을 복사
-            }
-            else
-            {
-                mainSlot.ReSetData(); // 비었으면 메인 퀵슬롯도 비우기
-            }
-        }
-    }
-
 
     /// <summary>
     /// 퀵슬롯 선택 기능을 담당하는 메서드
@@ -60,6 +42,11 @@ public class QuickSlotManager : SingleTon<QuickSlotManager>
     {
         QuickSlotItemHandler quickSlotItemHandler = quickSlotPrefabs[index].GetComponent<QuickSlotItemHandler>();
         quickSlotItemHandler.isSelected = true;
+
+        RectTransform rectTransform = hightLight.GetComponent<RectTransform>();
+        Vector2 pos = rectTransform.anchoredPosition;
+        pos.x = 110f * index;
+        rectTransform.anchoredPosition = pos;
 
         for (int i = 0; i < 9; i++)
         {

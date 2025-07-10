@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbc2d55d016dd8459709f25ad3516c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  count: {fileID: 0}
+  icon: {fileID: 7055346331390371369}
+  count: {fileID: 6936051930425204223}
   itemData: {fileID: 0}
   isEmpty: 1
 --- !u!114 &5462270375538258578
@@ -322,3 +322,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817daeaf37b3f9547a5381c458402e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
