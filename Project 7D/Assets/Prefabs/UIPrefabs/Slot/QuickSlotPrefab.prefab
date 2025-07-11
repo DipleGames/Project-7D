@@ -310,6 +310,7 @@ MonoBehaviour:
   count: {fileID: 6936051930425204223}
   itemData: {fileID: 0}
   isEmpty: 1
+  linkedQuickSlot: {fileID: 0}
 --- !u!114 &5462270375538258578
 MonoBehaviour:
   m_ObjectHideFlags: 0

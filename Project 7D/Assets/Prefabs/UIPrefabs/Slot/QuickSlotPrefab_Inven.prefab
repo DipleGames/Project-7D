@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 698660490397129524}
   - component: {fileID: 3982504913977671960}
   - component: {fileID: 7055346331390371369}
+  - component: {fileID: 5255556069839803478}
+  - component: {fileID: 3636112566188075106}
   m_Layer: 5
   m_Name: ItemIcon_Q
   m_TagString: Untagged
@@ -154,6 +156,33 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5255556069839803478
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392384471970665763}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3636112566188075106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392384471970665763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0134c8b6801ed2f4593f8100f887e4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryslotPrefab: {fileID: 0}
+  inventorySlot: {fileID: 0}
+  droppedSuccessfully: 0
 --- !u!1 &6365712099246152134
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +196,8 @@ GameObject:
   - component: {fileID: 6105452818106039937}
   - component: {fileID: 8513574321893949013}
   - component: {fileID: -8348767106136570582}
-  - component: {fileID: 6685402201213990685}
   - component: {fileID: 1903022889188527525}
+  - component: {fileID: 5250593527590223764}
   m_Layer: 5
   m_Name: QuickSlotPrefab_Inven
   m_TagString: Untagged
@@ -294,18 +323,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &6685402201213990685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6365712099246152134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c07f648b79b189143b94309d6139d857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1903022889188527525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,3 +339,16 @@ MonoBehaviour:
   count: {fileID: 0}
   itemData: {fileID: 0}
   isEmpty: 1
+  linkedQuickSlot: {fileID: 0}
+--- !u!114 &5250593527590223764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365712099246152134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908062f78963a0043b357cc5f0ae033d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -54,7 +54,11 @@ public class InventoryManager : SingleTon<InventoryManager>
             }
         }
     }
-
+    
+    /// <summary>
+    /// 필터기능(추가예정)
+    /// </summary>
+    /// <param name="filterType"></param>
     public void FilterByItemType(ItemType filterType)
     {
         Dictionary<ItemData, int> dict = PlayerInventory.Instance.itemDict;

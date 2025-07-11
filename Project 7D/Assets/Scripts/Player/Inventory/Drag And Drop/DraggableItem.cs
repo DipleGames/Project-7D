@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private CanvasGroup canvasGroup;
 
     [Header("디버그")]
-    [SerializeField] private InventorySlot inventorySlot;
+    public InventorySlot inventorySlot;
     public bool droppedSuccessfully = false;
 
 
@@ -23,7 +24,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         inventoryslotPrefab = transform.parent;
         inventorySlot = inventoryslotPrefab.GetComponent<InventorySlot>();
 
-        DragManager.Instance.BeginDrag(inventorySlot.itemData);
+        Vector2 originalSize = GetComponent<RectTransform>().sizeDelta;
+        DragManager.Instance.BeginDrag(inventorySlot.itemData, originalSize);
 
         transform.SetParent(transform.root); // UI 최상단으로 이동 (가리거나 잘리는 것 방지)
         canvasGroup.blocksRaycasts = false;  // Drop 인식 위해 false
@@ -31,25 +33,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        DragManager.Instance.UpdateDrag(eventData.position);
     }
+
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!droppedSuccessfully)
-        {
-            transform.SetParent(inventoryslotPrefab);
-            transform.localPosition = Vector3.zero;
-        }
-        else
-        {
-            transform.SetParent(inventoryslotPrefab);
-            transform.localPosition = Vector3.zero;
-            inventorySlot.ReSetData();
-        }
+        transform.SetParent(inventoryslotPrefab);
+        transform.localPosition = Vector3.zero;
 
         DragManager.Instance.EndDrag();
-        droppedSuccessfully = false; // 항상 초기화
+        droppedSuccessfully = false;
         canvasGroup.blocksRaycasts = true;
     }
+
+
 }
