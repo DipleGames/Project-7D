@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class DefaultZombieAI : MonoBehaviour
 {
-    public enum ZombieState { Idle, Chasing, Attacking }
+    public enum ZombieState { IdleState , ChashState, AttackState }
 
-    ZombieState state = ZombieState.Idle;
+    ZombieState state = ZombieState.IdleState;
     private Transform target;
 
     public ZombieStepAI zombieStepAI;
@@ -33,15 +33,15 @@ public class DefaultZombieAI : MonoBehaviour
     {
         switch (state)
         {
-            case ZombieState.Idle:
+            case ZombieState.IdleState:
                 IdleUpdate();
                 break;
 
-            case ZombieState.Chasing:
+            case ZombieState.ChashState:
                 ChaseUpdate();
                 break;
 
-            case ZombieState.Attacking:
+            case ZombieState.AttackState:
                 AttackUpdate();
                 break;
         }
@@ -53,7 +53,7 @@ public class DefaultZombieAI : MonoBehaviour
         anim.SetBool("isAttack", false);
         if (target != null && Vector3.Distance(transform.position, target.position) < 8f)
         {
-            state = ZombieState.Chasing;
+            state = ZombieState.ChashState;
             zombieStepAI.currentStep = StepState.Step;
         }
     }
@@ -66,7 +66,7 @@ public class DefaultZombieAI : MonoBehaviour
         // 공격 범위 안으로 접근
         if (Vector3.Distance(transform.position, target.position) <= ZombieAttackRange)
         {
-            state = ZombieState.Attacking;
+            state = ZombieState.AttackState;
             zombieStepAI.currentStep = StepState.None;
             zombieStepAI.stepTimer = 0f;
             return;
@@ -75,7 +75,7 @@ public class DefaultZombieAI : MonoBehaviour
         // 캐싱 범위 밖으로 나가면
         if (Vector3.Distance(transform.position, target.position) > ZombieChasingRange)
         {
-            state = ZombieState.Idle;
+            state = ZombieState.IdleState;
             zombieStepAI.currentStep = StepState.None;
             zombieStepAI.stepTimer = 0f;
             return;
@@ -93,7 +93,7 @@ public class DefaultZombieAI : MonoBehaviour
         // 공격 범위 밖으로 나가면
         if (Vector3.Distance(transform.position, target.position) > ZombieAttackRange)
         {
-            state = ZombieState.Chasing;
+            state = ZombieState.ChashState;
             zombieStepAI.currentStep = StepState.Step;
             return;
         }

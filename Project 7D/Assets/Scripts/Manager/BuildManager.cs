@@ -56,7 +56,7 @@ public class BuildManager : SingleTon<BuildManager>
         {
             // 모드 시작
             previewInstance = Instantiate(PreviewPrefab);
-            BoxCollider boxCollider = previewInstance.GetComponent<BoxCollider>();
+            BoxCollider boxCollider = previewInstance.GetComponentInChildren<BoxCollider>();
             boxCollider.enabled = false;
             
             previewRenderer = previewInstance.GetComponentInChildren<Renderer>();

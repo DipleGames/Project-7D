@@ -1186,6 +1186,7 @@ GameObject:
   - component: {fileID: 2651970728943526766}
   - component: {fileID: -1885591024872478997}
   - component: {fileID: -2739341493054398236}
+  - component: {fileID: -648914904470938093}
   - component: {fileID: 5234554323181994903}
   m_Layer: 15
   m_Name: WaveZombiePrefab
@@ -1313,6 +1314,21 @@ MonoBehaviour:
   attackPlayerRange: 0.5
   attackHeartRange: 1.8
   attackPower: 5
+  target: {fileID: 0}
+--- !u!114 &-648914904470938093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170052297267817369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c941d7b5d4313044bf14e2ada6ed567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
 --- !u!195 &5234554323181994903
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -1187,6 +1187,7 @@ GameObject:
   - component: {fileID: -1885591024872478997}
   - component: {fileID: -639800072973963879}
   - component: {fileID: -1028518309220510291}
+  - component: {fileID: 3993268337641888225}
   m_Layer: 15
   m_Name: DefaultZombiePrefab
   m_TagString: Untagged
@@ -1331,6 +1332,20 @@ MonoBehaviour:
   transferDuration: 1.8
   currentStep: 0
   stepTimer: 0
+--- !u!114 &3993268337641888225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170052297267817369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c941d7b5d4313044bf14e2ada6ed567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
 --- !u!1 &3307816542310762037
 GameObject:
   m_ObjectHideFlags: 0
