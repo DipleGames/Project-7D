@@ -10,7 +10,7 @@ public class PlayerInventory : SingleTon<PlayerInventory>
     public Dictionary<ItemData, int> itemDict = new();
 
     public event Action<ResourceData, int> OnResourceChanged;
-    public event Action<Sprite, ItemData> OnItemChanged;
+    public event Action<ItemData> OnItemChanged;
 
     void Start()
     {
@@ -72,7 +72,7 @@ public class PlayerInventory : SingleTon<PlayerInventory>
         {
             itemDict[data] = amount;
         }
-        OnItemChanged?.Invoke(icon, data);
+        OnItemChanged?.Invoke(data);
 
         foreach (var id in itemDict)
             Debug.Log($"{id.Key}, {id.Value}");
@@ -88,6 +88,6 @@ public class PlayerInventory : SingleTon<PlayerInventory>
         {
             itemDict[data] = amount;
         }
-        OnItemChanged.Invoke(icon, data);
+        OnItemChanged.Invoke(data);
     }
 }

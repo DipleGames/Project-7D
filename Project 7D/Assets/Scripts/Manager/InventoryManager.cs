@@ -26,7 +26,7 @@ public class InventoryManager : SingleTon<InventoryManager>
         }
     }
 
-    void UpdateInventoryUI(Sprite icon, ItemData data)
+    void UpdateInventoryUI(ItemData data)
     {
         Dictionary<ItemData, int> dict = PlayerInventory.Instance.itemDict;
 
@@ -36,7 +36,7 @@ public class InventoryManager : SingleTon<InventoryManager>
             InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
             if (!inventorySlot.isEmpty && inventorySlot.itemData == data)
             {
-                inventorySlot.SetData(icon, data, dict[data]);
+                inventorySlot.SetData(data, dict[data]);
                 return;
             }
         }
@@ -49,7 +49,7 @@ public class InventoryManager : SingleTon<InventoryManager>
             {
                 if (dict[data] <= 0) return;
                 
-                inventorySlot.SetData(icon, data, dict[data]);
+                inventorySlot.SetData(data, dict[data]);
                 return;
             }
         }
@@ -77,7 +77,7 @@ public class InventoryManager : SingleTon<InventoryManager>
             if (itemData.itemType == filterType)
             {
                 InventorySlot inventorySlot = inventorySlots[i].GetComponent<InventorySlot>();
-                inventorySlot.SetData(itemData.icon, itemData, dict[itemData]);
+                inventorySlot.SetData(itemData, dict[itemData]);
                 i++;
             }
         }

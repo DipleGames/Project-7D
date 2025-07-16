@@ -68,8 +68,8 @@ public class UseItemHandler : MonoBehaviour
     void ConsumeQuickSlotItem()
     {
         PlayerInventory.Instance.itemDict[quickSlot.itemData]--;
-        quickSlot.SetData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
-        quickSlot.LinkData(quickSlot.itemData.icon, quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
+        quickSlot.SetData(quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
+        quickSlot.LinkData(quickSlot.itemData, PlayerInventory.Instance.itemDict[quickSlot.itemData]);
 
         if (PlayerInventory.Instance.itemDict[quickSlot.itemData] == 0)
         {

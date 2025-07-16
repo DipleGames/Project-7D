@@ -9,9 +9,9 @@ public class InventorySlot : MonoBehaviour
 
     public bool isEmpty = true;
 
-    public void SetData(Sprite iconSprite, ItemData data, int amount)
+    public void SetData(ItemData data, int amount)
     {
-        icon.sprite = iconSprite;
+        icon.sprite = data.icon;
         count.text = amount.ToString();
         itemData = data;
         isEmpty = false;

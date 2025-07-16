@@ -28,10 +28,10 @@ public class DropSlot : MonoBehaviour, IDropHandler
                 ? PlayerInventory.Instance.itemDict[draggedData]
                 : 0;
 
-            targetSlot.SetData(draggedData.icon, draggedData, count); // 도착 슬롯에 데이터 세팅
+            targetSlot.SetData(draggedData, count); // 도착 슬롯에 데이터 세팅
             if (targetSlot is QuickSlot tq) // 근데 도착 슬롯이 퀵슬롯이면 링크데이터 세팅까지
             {
-                tq.LinkData(draggedData.icon, draggedData, count);
+                tq.LinkData(draggedData, count);
             }
 
             if (originSlot is QuickSlot originQS) // 출발슬롯이 퀵슬롯이면
@@ -51,7 +51,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
         {
             // 스왑용 데이터 임시 저장 (깊은 복사)
             ItemData tempData = targetSlot.itemData; // 도착슬롯에 있는 데이터를 미리 저장
-            Sprite tempIcon = tempData.icon;
+
             int tempCount = PlayerInventory.Instance.itemDict.ContainsKey(tempData) // 도착슬롯에 들어있는 아이템의 갯수
                 ? PlayerInventory.Instance.itemDict[tempData]
                 : 0;
@@ -61,14 +61,14 @@ public class DropSlot : MonoBehaviour, IDropHandler
                 : 0;
 
             // target ← draggedData
-            targetSlot.SetData(draggedData.icon, draggedData, draggedCount); // 놓았을때 도착슬롯에 데이터 세팅
+            targetSlot.SetData(draggedData, draggedCount); // 놓았을때 도착슬롯에 데이터 세팅
             if (targetSlot is QuickSlot targetQS) // 근데 도착슬롯이 퀵슬롯이면
-                targetQS.LinkData(draggedData.icon, draggedData, draggedCount); // 링크슬롯까지 세팅
+                targetQS.LinkData(draggedData, draggedCount); // 링크슬롯까지 세팅
 
             // origin ← tempData (미리 저장된 아이콘과 수량 사용)
-            originSlot.SetData(tempIcon, tempData, tempCount); // 출발슬롯에 저장되어있던 정보 세팅
+            originSlot.SetData(tempData, tempCount); // 출발슬롯에 저장되어있던 정보 세팅
             if (originSlot is QuickSlot originQS) // 근데 출발슬롯이 퀵슬롯이면
-                originQS.LinkData(tempIcon, tempData, tempCount); // 링크슬롯까지 세팅
+                originQS.LinkData(tempData, tempCount); // 링크슬롯까지 세팅
             
             Debug.Log("슬롯 간 스왑 완료");
         }
