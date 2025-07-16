@@ -40,8 +40,8 @@ public class QuickSlotManager : SingleTon<QuickSlotManager>
     /// <param name="index"></param>
     void SelectedQuickSlot(int index)
     {
-        QuickSlotItemHandler quickSlotItemHandler = quickSlotPrefabs[index].GetComponent<QuickSlotItemHandler>();
-        quickSlotItemHandler.isSelected = true;
+        UseItemHandler useItemHandler = quickSlotPrefabs[index].GetComponent<UseItemHandler>();
+        useItemHandler.isSelected = true;
 
         RectTransform rectTransform = hightLight.GetComponent<RectTransform>();
         Vector2 pos = rectTransform.anchoredPosition;
@@ -52,8 +52,8 @@ public class QuickSlotManager : SingleTon<QuickSlotManager>
         {
             if (i != index)
             {
-                QuickSlotItemHandler otherQuickSlotItemHandler = quickSlotPrefabs[i].GetComponent<QuickSlotItemHandler>();
-                otherQuickSlotItemHandler.isSelected = false;
+                UseItemHandler otherUseItemHandler = quickSlotPrefabs[i].GetComponent<UseItemHandler>();
+                otherUseItemHandler.isSelected = false;
             }
         }
     }

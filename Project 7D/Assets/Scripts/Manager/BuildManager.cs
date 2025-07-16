@@ -16,7 +16,8 @@ public class BuildManager : SingleTon<BuildManager>
     public float GridSize = 1f;
     public Vector3 BoxSize = new Vector3(1f, 1f, 1f);
 
-    private bool isBuildMode = false;
+    public bool isBuildMode = false;
+    public bool isPlaced = false;
 
     void Update()
     {
@@ -39,6 +40,14 @@ public class BuildManager : SingleTon<BuildManager>
                 Destroy(previewInstance);
                 previewInstance = null;
                 isBuildMode = false;
+                isPlaced = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Destroy(previewInstance);
+                previewInstance = null;
+                isBuildMode = false;
+                isPlaced = false;
             }
         }
     }
