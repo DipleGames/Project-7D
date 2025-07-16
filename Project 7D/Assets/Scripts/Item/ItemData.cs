@@ -13,15 +13,12 @@ public enum Category
 {
     Structure,
     Consumable,
-    Resource,
 }
 
 [System.Serializable]
 public class ResourceRequirement // 필요한 재료 및 개수 정의하기 위함
 {
-    public ResourceType resourceType;
-    public Sprite resourceIcon;
-    public Category category;
+    public ResourceData resourceData;
     public int amount;
 }
 
@@ -35,6 +32,6 @@ public class ItemData : ScriptableObject
     public Sprite icon; // 아이템 아이콘
     public ItemType itemType; // 아이템의 타입 
     public Category category; // 아이템의 종류(설치, 소비, 자원)
-    public GameObject prefab;
     public List<ResourceRequirement> requirements; // 이 아이템을 구매하기 위한 자원량 리스트
 }
+

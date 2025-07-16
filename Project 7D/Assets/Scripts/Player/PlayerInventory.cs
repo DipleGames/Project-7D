@@ -6,62 +6,61 @@ using UnityEngine;
 
 public class PlayerInventory : SingleTon<PlayerInventory>
 {
-    public Dictionary<ResourceType, int> resourceDict = new();
+    public Dictionary<ResourceData, int> resourceDict = new();
     public Dictionary<ItemData, int> itemDict = new();
-    public event Action<Sprite, ResourceType, Category, int> OnResourceChanged;
+
+    public event Action<ResourceData, int> OnResourceChanged;
     public event Action<Sprite, ItemData> OnItemChanged;
 
     void Start()
     {
-        foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
-        {
-            resourceDict[type] = 0;
-        }
+        // 초기화는 필요에 따라 외부에서 ResourceData들을 수집해 설정해야 함
+        // 예: Resources.LoadAll<ResourceData>("Resources") 등
     }
 
     /// <summary>
     /// 자원 추가 및 제거
     /// </summary>
-    /// <param name="icon"></param>
-    /// <param name="type"></param>
-    /// <param name="category"></param>
+    /// <param name="data"></param>
     /// <param name="amount"></param>
-    public void AddResource(Sprite icon, ResourceType type, Category category, int amount)
+    public void AddResource(ResourceData data, int amount)
     {
-        if (resourceDict.ContainsKey(type))
+        if (resourceDict.ContainsKey(data))
         {
-            resourceDict[type] += amount;
+            resourceDict[data] += amount;
         }
         else
         {
-            resourceDict[type] = amount;
+            resourceDict[data] = amount;
         }
 
-        // UI에 현재 수량 전달
-        OnResourceChanged?.Invoke(icon, type, category, resourceDict[type]);
+        OnResourceChanged?.Invoke(data, resourceDict[data]);
     }
 
-    public void SubtractResource(Sprite icon, ResourceType type, Category category, int amount)
+    public void SubtractResource(ResourceData data, int amount)
     {
-        if (resourceDict.ContainsKey(type))
+        if (resourceDict.ContainsKey(data))
         {
-            resourceDict[type] -= amount;
+            resourceDict[data] -= amount;
         }
         else
         {
-            resourceDict[type] = amount;
+            resourceDict[data] = amount;
         }
 
-        // UI에 현재 수량 전달
-        OnResourceChanged?.Invoke(icon, type, category, resourceDict[type]);
+        OnResourceChanged?.Invoke(data, resourceDict[data]);
+    }
+
+    public int GetAmount(ResourceData data)
+    {
+        return resourceDict.TryGetValue(data, out int val) ? val : 0;
     }
 
     /// <summary>
     /// 아이템 추가 및 제거
     /// </summary>
     /// <param name="icon"></param>
-    /// <param name="type"></param>
-    /// <param name="category"></param>
+    /// <param name="data"></param>
     /// <param name="amount"></param>
     public void AddItem(Sprite icon, ItemData data, int amount)
     {
@@ -90,11 +89,5 @@ public class PlayerInventory : SingleTon<PlayerInventory>
             itemDict[data] = amount;
         }
         OnItemChanged.Invoke(icon, data);
-    }
-
-
-    public int GetAmount(ResourceType type)
-    {
-        return resourceDict.TryGetValue(type, out int val) ? val : 0;
     }
 }

@@ -43,8 +43,13 @@ public class UseItemHandler : MonoBehaviour
     public IEnumerator UseTowerItem()
     {
         // 설치할 프리팹 설정
-        BuildManager.Instance.BuildingPrefab = quickSlot.itemData.prefab;
-        BuildManager.Instance.PreviewPrefab = quickSlot.itemData.prefab;
+        TowerItemData towerData = quickSlot.itemData as TowerItemData;
+        
+        if (towerData != null)
+        {
+            BuildManager.Instance.BuildingPrefab = towerData.prefab;
+            BuildManager.Instance.PreviewPrefab = towerData.prefab;
+        }
 
         // 빌드 모드 켜기
         BuildManager.Instance.ToggleBuildMode();
@@ -57,7 +62,7 @@ public class UseItemHandler : MonoBehaviour
 
     void UseFoodItem()
     {
-
+        ConsumeQuickSlotItem();
     }
 
     void ConsumeQuickSlotItem()

@@ -182,3 +182,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 60b80cd629628bf4998e4088c43e571b, type: 2}
+  gatherTime: 3
+  getAmount: 5

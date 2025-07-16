@@ -10,7 +10,7 @@ public class ResourceInventoryManager : SingleTon<ResourceInventoryManager>
     [SerializeField] private Transform resourceInventoryPanel;
     [SerializeField] private GameObject resourceInventorySlotPrefab;
 
-    private Dictionary<ResourceType, ResourceInventorySlot> resourceSlotDict = new Dictionary<ResourceType, ResourceInventorySlot>();
+    private Dictionary<ResourceData, ResourceInventorySlot> resourceSlotDict = new Dictionary<ResourceData, ResourceInventorySlot>();
 
 
     void Start()
@@ -29,18 +29,18 @@ public class ResourceInventoryManager : SingleTon<ResourceInventoryManager>
     }
 
 
-    public void UpdateResourceInventoryUI(Sprite icon, ResourceType type, Category category, int amount)
+    public void UpdateResourceInventoryUI(ResourceData data, int amount)
     {
-        if (resourceSlotDict.TryGetValue(type, out var slot)) // 만약 인벤에 이미 있는 아이템이라면
+        if (resourceSlotDict.TryGetValue(data, out var slot)) // ResourceData로 접근
         {
-            slot.SetData(icon, type.ToString(), category.ToString(), amount); // 수량만 갱신
+            slot.SetData(data, amount); // 기존 슬롯 수량 갱신
         }
         else
         {
             GameObject slotPrefab = Instantiate(resourceInventorySlotPrefab, resourceInventoryPanel);
-            ResourceInventorySlot newSlotPrefab = slotPrefab.GetComponent<ResourceInventorySlot>();
-            newSlotPrefab.SetData(icon, type.ToString(), category.ToString(), amount);
-            resourceSlotDict.Add(type, newSlotPrefab); // 새로 등록
+            ResourceInventorySlot newSlot = slotPrefab.GetComponent<ResourceInventorySlot>();
+            newSlot.SetData(data, amount); // 올바르게 ResourceData 넘김
+            resourceSlotDict.Add(data, newSlot); // 새로운 슬롯 등록
         }
     }
 

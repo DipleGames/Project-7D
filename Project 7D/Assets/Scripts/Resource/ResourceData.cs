@@ -14,10 +14,7 @@ public enum ResourceType
 public class ResourceData : ScriptableObject
 {
     public ResourceType resourceType;
-    public Category category;
-    public string displayName;
-    public float gatherTime = 3f; // 캐는시간
     public Sprite icon;
-    public int amount;
+    public string displayName;
     public AudioClip hitSound;
 }

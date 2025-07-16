@@ -42,7 +42,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         foreach (var req in currentData.requirements)
         {
-            resourceNames.Add(req.resourceType.ToString());
+            resourceNames.Add(req.resourceData.displayName);
             amounts.Add(req.amount.ToString());
         }
 
@@ -64,12 +64,12 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         foreach (ResourceRequirement req in currentData.requirements)
         {
-            if (PlayerInventory.Instance.resourceDict[req.resourceType] < req.amount)
+            if (PlayerInventory.Instance.resourceDict[req.resourceData] < req.amount)
             {
                 Debug.Log("재료가 부족합니다.");
                 return;
             }
-            PlayerInventory.Instance.SubtractResource(req.resourceIcon, req.resourceType, req.category, req.amount);
+            PlayerInventory.Instance.SubtractResource(req.resourceData, req.amount);
         }
         PlayerInventory.Instance.AddItem(currentData.icon, currentData, 1); // 플레이어 인벤토리에 아이템을 추가함 (아이템의 아이콘과 아이템의 데이터 , 개수)
     }

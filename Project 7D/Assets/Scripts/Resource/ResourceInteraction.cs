@@ -27,9 +27,9 @@ public class ResourceInteraction : MonoBehaviour
                 }
 
                 gatherTimer += Time.deltaTime;
-                UIManager.Instance.SetGatherProgress(gatherTimer / targetNode.Data.gatherTime);
+                UIManager.Instance.SetGatherProgress(gatherTimer / targetNode.gatherTime);
 
-                if (gatherTimer >= targetNode.Data.gatherTime)
+                if (gatherTimer >= targetNode.gatherTime)
                 {
                     OnGatherComplete();
                 }
@@ -49,7 +49,7 @@ public class ResourceInteraction : MonoBehaviour
     {
         animator.SetBool("isChopping", false);
         Destroy(targetNode.gameObject);
-        PlayerInventory.Instance.AddResource(targetNode.Data.icon, targetNode.ResourceType, targetNode.Data.category, targetNode.Data.amount);
+        PlayerInventory.Instance.AddResource(targetNode.Data, targetNode.getAmount);
         targetNode = null;
         ResetGathering();
     }
