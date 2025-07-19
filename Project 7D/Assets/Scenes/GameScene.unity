@@ -282,9 +282,9 @@ MonoBehaviour:
   requirements_Resource: {fileID: 667295840}
   requirements_Value: {fileID: 1743082445}
   ToweritemDatas:
-  - {fileID: 11400000, guid: 6c7e57c67dc27094fa357c3c23bdac27, type: 2}
+  - {fileID: 11400000, guid: d0c89ec65201bb84a98ade9f47821b82, type: 2}
   FooditemDatas:
-  - {fileID: 11400000, guid: 082ce4440213a15458774c6771d0a16d, type: 2}
+  - {fileID: 11400000, guid: 195ee4bfb98a8f04ab850756541528d0, type: 2}
   selectedItemSlot: {fileID: 0}
 --- !u!136 &22280705
 CapsuleCollider:
@@ -2658,11 +2658,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 1479690602}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -4159,11 +4154,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 966123721}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -4408,11 +4398,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 192357611}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -4924,11 +4909,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 1560690586}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -7514,7 +7494,7 @@ GameObject:
   - component: {fileID: 796813415}
   - component: {fileID: 796813414}
   m_Layer: 0
-  m_Name: Category
+  m_Name: Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7536,7 +7516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -15}
+  m_AnchoredPosition: {x: 15, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796813414
@@ -7572,7 +7552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Category
+  m_Text: Type
 --- !u!222 &796813415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10988,11 +10968,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 811484836}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -13164,11 +13139,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 1173507113}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -13890,6 +13860,8 @@ MonoBehaviour:
     m_Bits: 384
   GridSize: 1
   BoxSize: {x: 1, y: 1, z: 1}
+  isBuildMode: 0
+  isPlaced: 0
 --- !u!1 &1687720378
 GameObject:
   m_ObjectHideFlags: 0
@@ -15883,11 +15855,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 1665500367}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -16075,11 +16042,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 2021545486}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name
@@ -16718,11 +16680,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5462270375538258578, guid: df40f44bdc1f95b4d872a75684014f4b,
-        type: 3}
-      propertyPath: linkedQuickSlot
-      value: 
-      objectReference: {fileID: 1808337506}
     - target: {fileID: 6365712099246152134, guid: df40f44bdc1f95b4d872a75684014f4b,
         type: 3}
       propertyPath: m_Name

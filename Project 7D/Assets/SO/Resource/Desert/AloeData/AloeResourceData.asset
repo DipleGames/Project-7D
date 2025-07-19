@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: AloeResourceData
   m_EditorClassIdentifier: 
   resourceType: 4
-  displayName: "\uC54C\uB85C\uC5D0"
-  gatherTime: 3
   icon: {fileID: 0}
-  category: 2
-  amount: 2
+  displayName: "\uC54C\uB85C\uC5D0"
   hitSound: {fileID: 0}
