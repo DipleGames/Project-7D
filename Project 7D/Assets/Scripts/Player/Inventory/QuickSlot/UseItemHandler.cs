@@ -62,6 +62,12 @@ public class UseItemHandler : MonoBehaviour
 
     void UseFoodItem()
     {
+        FoodItemData foodData = quickSlot.itemData as FoodItemData;
+        
+        if (foodData != null)
+        {
+            PlayerController.Instance.Eat(foodData.healAmount);
+        }
         ConsumeQuickSlotItem();
     }
 

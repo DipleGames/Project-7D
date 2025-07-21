@@ -184,11 +184,13 @@ public class PlayerController : SingleTon<PlayerController>
     public void Eat(int amount) // 먹기
     {
         hunger = Mathf.Clamp(hunger + amount, 0, maxHunger);
+        OnPlayerConditonChanged.Invoke(hunger, thirst);
     }
 
     public void Drink(int amount) // 마시기
     {
         thirst = Mathf.Clamp(thirst + amount, 0, maxThirst);
+        OnPlayerConditonChanged.Invoke(hunger, thirst);
     }
 
     public void RestoreStamina(float amount) // 스테미너 회복
