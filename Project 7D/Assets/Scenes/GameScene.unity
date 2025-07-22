@@ -16758,6 +16758,12 @@ MonoBehaviour:
       prefab: {fileID: 6798094792736165173, guid: 53a330d5c5a95dd4db42e558616b8821,
         type: 3}
       size: 200
+  zombiePoolGroups:
+  - zombiePools:
+    - tag: WaveZombie
+      prefab: {fileID: 3170052297267817369, guid: a34c3b242d35e5742abc424d731abd55,
+        type: 3}
+      size: 500
 --- !u!4 &1931305808
 Transform:
   m_ObjectHideFlags: 0

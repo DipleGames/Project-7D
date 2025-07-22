@@ -89,7 +89,7 @@ public abstract class BiomeGenerator : MonoBehaviour
 
             if (!IsPositionValid(pos)) { attempts++; continue; }
 
-            ObjectPool.Instance.SpawnFromPool(resourceType.tag, pos, Quaternion.identity);
+            ObjectPool.Instance.SpawnFromResourcePool(resourceType.tag, pos, Quaternion.identity);
             placedPositions.Add(pos);
             placed++;
         }

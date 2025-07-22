@@ -53,11 +53,10 @@ public class WaveManager : SingleTon<WaveManager>
                 Vector2 randomOffset = Random.insideUnitCircle * radius;
                 Vector3 newPos = new Vector3(pos.x + randomOffset.x, 0f, pos.y + randomOffset.y);
 
-                // 랜덤 위치가 베이스 밖인지 체크하는 로직
-                Vector2 checkPos = new Vector2(pos.x + randomOffset.x, pos.y + randomOffset.y); 
-                if (InBase(checkPos)) continue; // 오버로딩 사용
+                Vector2 checkPos = new Vector2(pos.x + randomOffset.x, pos.y + randomOffset.y);
+                if (InBase(checkPos)) continue;
 
-                Instantiate(waveZombiePrefab, newPos, Quaternion.identity, transform);
+                GameObject waveZombie = ObjectPool.Instance.SpawnFromZombiePool("WaveZombie", newPos, Quaternion.identity);
             }
         }
     }
