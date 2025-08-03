@@ -19,7 +19,6 @@ public class SingleTon<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // 중복 방지 (DontDestroyOnLoad 안 쓰므로 씬마다 생겨도 됨)
         if (instance == null)
         {
             instance = this as T;

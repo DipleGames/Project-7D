@@ -3,16 +3,18 @@ using UnityEngine.AI;
 
 public class WaveZombieAI : MonoBehaviour
 {
-    public enum ZombieState { ToBase, ToPlayer, ToHeart, AttackPlayer, AttackHeart, }
+    public enum ZombieState { ToBase, ToPlayer, ToHeart, ToTower, AttackPlayer, AttackHeart, AttackTower }
     [SerializeField] private ZombieState currentState = ZombieState.ToBase;
 
     [SerializeField] private float detectRange = 10f;
     [SerializeField] private float attackPlayerRange = 0.5f;
     [SerializeField] private float attackHeartRange = 2f;
+    [SerializeField] private float attackTowerRange = 1f;
     [SerializeField] private float attackPower = 5f;
 
     private Transform player;
     private Transform baseHeart;
+    private Transform tower;
     private NavMeshAgent agent;
     private Animator anim;
     [SerializeField] private Transform target;
@@ -62,6 +64,9 @@ public class WaveZombieAI : MonoBehaviour
                 }
                 break;
             case ZombieState.AttackHeart:
+                FaceTarget(target);
+                break;
+            case ZombieState.AttackTower:
                 FaceTarget(target);
                 break;
         }
