@@ -13,7 +13,7 @@
 ## 기술스택
 - IDE : Visual Studio Code
 - Game Engine : Unity
-- 
+- Language : C#
 
 ## 주요기능 (프로토타입)
 - 터레인기반 맵 생성 및 자원배치 기능 (펄린노이즈 알고리즘, 오브젝트 풀링)
