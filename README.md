@@ -12,7 +12,7 @@
 
 ## 기술스택
 - IDE : Visual Studio Code
-- Game Engine : Unity
+- Game Engine : Unity 3.14
 - Language : C#
 
 ## 주요기능 (프로토타입)
