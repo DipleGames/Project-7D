@@ -16,7 +16,7 @@
 - Language : C#
 
 ## 게임 시스템구조 아키텍처
-  <img width="2240" height="2173" alt="image" src="https://github.com/user-attachments/assets/17b36bf4-c52e-4756-b2fe-2fac729902e8" />
+  <img width="1600" height="1500" alt="image" src="https://github.com/user-attachments/assets/17b36bf4-c52e-4756-b2fe-2fac729902e8" />
 
 
 ## 주요기능
